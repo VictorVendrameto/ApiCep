@@ -8,7 +8,7 @@ class EnderecoDAO extends DAO
 {
     public function __construct()
     {
-    
+        parent::__construct();
     }
 
     public function selectByCep(int $cep)
@@ -44,6 +44,30 @@ class EnderecoDAO extends DAO
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $uf);
         $stmt->execute();
+
+        return $stmt->fetchAll(DAO::FETCH_CLASS);
+    }
+
+    public function selectBairrosByIdCidade(int $id_cidade)
+    {
+        $sql = "SELECT descricao_bairro 
+                FROM logradouro 
+                WHERE id_cidade = ? 
+                GROUP BY descricao_bairro ";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id_cidade);
+        $stmt->execute();
+
+        return $stmt->fetchAll(DAO::FETCH_CLASS);
+    }
+
+    public function selectCepByLogradouro($logradouro)
+    {
+        $sql = "SELECT * FROM logradouro WHERE descricao_sem_numero LIKE :q ";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute([':q' => "%" . $logradouro . "%"]);
 
         return $stmt->fetchAll(DAO::FETCH_CLASS);
     }
