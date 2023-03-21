@@ -74,5 +74,19 @@ abstract class Controller
             throw new Exception("Variável $var_name não identificada.");
     }
 
+    protected static function setResponseAsJSON($data, $request_status = true)
+    {
+        $response = array("response_data" => $data, "response_successful" => $request_status);
+
+        
+        header("Acess-Control-Allow-Origin: *");
+        header("Content-type: application/json; charset=utf-8");
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        header("Pragma: public");
+
+        exit(json_encode($response));
+    }
+
     
 }
