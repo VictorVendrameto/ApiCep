@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace ApiCep\Model;
 
-use App\DAO\EnderecoDAO;
+use ApiCep\DAO\EnderecoDAO;
 
 class CidadeModel extends Model
 {
@@ -12,6 +12,6 @@ class CidadeModel extends Model
     {
         $dao = new EnderecoDAO();
 
-        $this->rows = $dao->selectCidadesByUF($uf);
+        $this->rows = $dao->selectCidadesByUf($uf);
     }
 }

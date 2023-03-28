@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Model;
+namespace ApiCep\Model;
 
-use App\DAO\EnderecoDAO;
+use ApiCep\DAO\EnderecoDAO;
 use Exception;
 
 class EnderecoModel extends Model
 {
-    public $id_logradouro, $tipo, $descricao, $id_cidade,
-           $uf, $complemento, $descricao_sem_numero,
-           $descricao_cidade, $codigo_cidade_ibge,
-           $descricao_bairro;
-
-    public $arr_cidades;
+    public $id_logradouro, $tipo, $descricao, $id_cidade, $uf, $complemento, $descricao_sem_numero, $descricao_cidade, $codigo_cidade_ibge;
+    public $descricao_bairro, $arr_cidades;
 
     public function getLogradouroByBairroAndCidade(string $bairro, int $id_cidade)
     {

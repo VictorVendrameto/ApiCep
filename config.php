@@ -7,6 +7,3 @@ $_ENV['db']['user'] = 'root';
 $_ENV['db']['pass'] = 'etecjau';
 $_ENV['db']['database'] = 'busca_by_cep';
 
-include 'config.php';
-include 'autoload.php';
-include 'rotas.php';

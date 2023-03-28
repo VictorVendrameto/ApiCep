@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace ApiCep\Model;
 
-use App\DAO\BairroDAO;
+use ApiCep\DAO\BairroDAO;
 
 class BairroModel extends Model
 {

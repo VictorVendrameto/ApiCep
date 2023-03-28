@@ -2,8 +2,7 @@
 
 namespace ApiCep\Controller;
 
-use App\DAO\EnderecoDAO;
-use App\Model\{ EnderecoModel, CidadeModel};
+use ApiCep\Model\{ EnderecoModel, CidadeModel};
 use Exception;
 
 class EnderecoController extends Controller
@@ -84,7 +83,7 @@ class EnderecoController extends Controller
             $uf = $_GET['uf'];
 
             $model = new CidadeModel();
-            $model->getCidadebyUf($uf);
+            $model->getCidadesbyUf($uf);
 
             parent::getResponseAsJSON($model->rows);
         }
